@@ -1,14 +1,16 @@
 import 'dart:developer';
 
+import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.dart';
+import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_home_page.dart';
 import 'package:citas_med_app/src/presentation/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
   static const String loadingPage = '/';
   static const String loginPage = '/login';
-  static const String homePage = '/register';
-
-  static const String settingsPage = '/home';
+  static const String pacHomePage = '/pac/home';
+  static const String docHomePage = '/doc/home';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     log('--------------------------------------${settings.name}');
@@ -16,10 +18,10 @@ class AppRoutes {
     switch (settings.name) {
       case loadingPage:
         return _fadeRoute(const RegisterPage(), loginPage, settings);
-      case homePage:
-        return _fadeRoute(const RegisterPage(), loginPage, settings);
+      case docHomePage:
+        return _fadeRoute(const DocHomePage(), loginPage, settings);
       case loginPage:
-        return _fadeRoute(const RegisterPage(), loginPage, settings);
+        return _fadeRoute(const LoginPage(), loginPage, settings);
 
       default:
         return _errorRoute();
