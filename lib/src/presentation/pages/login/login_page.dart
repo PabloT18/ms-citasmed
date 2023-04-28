@@ -66,7 +66,10 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 width: double.maxFinite,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(AppRoutes.docHomePage);
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(
                         16.0), // Personaliza el espacio de relleno del botón
@@ -78,10 +81,11 @@ class LoginPage extends StatelessWidget {
               const Divider(),
               const SizedBox(height: AppLayoutConst.spaceXL),
               RedesSocialesButtons(responsive: responsive),
-              const Spacer(flex: 2),
+              const Spacer(flex: 3),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, AppRoutes.loadingPage);
+                  Navigator.pushReplacementNamed(
+                      context, AppRoutes.loadingPage);
                 },
                 child: const Text('Registrate!'),
               ),
@@ -111,12 +115,14 @@ class RedesSocialesButtons extends StatelessWidget {
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
-            minimumSize: Size(responsive.hp(5), responsive.hp(5)),
+            minimumSize: Size(responsive.hp(6), responsive.hp(6)),
             padding: const EdgeInsets.all(
                 16.0), // Personaliza el espacio de relleno del botón
           ),
           child: const FaIcon(
             FontAwesomeIcons.facebookF,
+            size: 20,
+
             // size: responsive.hp(10),
           ),
         ),
@@ -124,12 +130,14 @@ class RedesSocialesButtons extends StatelessWidget {
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
-            minimumSize: Size(responsive.hp(5), responsive.hp(5)),
+            minimumSize: Size(responsive.hp(6), responsive.hp(6)),
             padding: const EdgeInsets.all(
                 16.0), // Personaliza el espacio de relleno del botón
           ),
           child: const FaIcon(
-            FontAwesomeIcons.facebookF,
+            FontAwesomeIcons.twitter,
+            size: 20,
+
             // size: responsive.hp(10),
           ),
         ),
@@ -137,12 +145,14 @@ class RedesSocialesButtons extends StatelessWidget {
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
-            minimumSize: Size(responsive.hp(5), responsive.hp(5)),
+            minimumSize: Size(responsive.hp(6), responsive.hp(6)),
             padding: const EdgeInsets.all(
                 16.0), // Personaliza el espacio de relleno del botón
           ),
           child: const FaIcon(
-            FontAwesomeIcons.facebookF,
+            FontAwesomeIcons.apple,
+            size: 20,
+
             // size: responsive.hp(10),
           ),
         ),
@@ -150,12 +160,13 @@ class RedesSocialesButtons extends StatelessWidget {
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
-            minimumSize: Size(responsive.hp(5), responsive.hp(5)),
+            minimumSize: Size(responsive.hp(6), responsive.hp(6)),
             padding: const EdgeInsets.all(
                 16.0), // Personaliza el espacio de relleno del botón
           ),
           child: const FaIcon(
-            FontAwesomeIcons.facebookF,
+            FontAwesomeIcons.google,
+            size: 20,
             // size: responsive.hp(10),
           ),
         ),

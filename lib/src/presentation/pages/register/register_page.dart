@@ -1,7 +1,7 @@
+import 'package:citas_med_app/src/presentation/widgets/boton_icon.dart';
 import 'package:citas_med_app/src/presentation/widgets/logo.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/router/app_router.dart';
-import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -20,13 +20,23 @@ class RegisterPage extends StatelessWidget {
             const Spacer(
               flex: 2,
             ),
-            _ButtonUser(
+            const Text('¿Como quieres usar tu cuenta?'),
+            const Spacer(
+              flex: 2,
+            ),
+            ButtonUser(
+              onpress: () {
+                Navigator.pushNamed(context, AppRoutes.medregisterPage);
+              },
               responsive: responsive,
               icon: FontAwesomeIcons.userDoctor,
               title: 'Médico',
             ),
             const Spacer(flex: 1),
-            _ButtonUser(
+            ButtonUser(
+              onpress: () {
+                Navigator.pushNamed(context, AppRoutes.pacregisterPage);
+              },
               responsive: responsive,
               icon: FontAwesomeIcons.userLarge,
               title: 'Paciente',
@@ -36,7 +46,7 @@ class RegisterPage extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.loginPage);
+                Navigator.pushReplacementNamed(context, AppRoutes.loginPage);
               },
               child: const Text('Ya tienes una cuenta?'),
             ),
@@ -44,50 +54,6 @@ class RegisterPage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _ButtonUser extends StatelessWidget {
-  const _ButtonUser({
-    Key? key,
-    required this.responsive,
-    required this.icon,
-    required this.title,
-  }) : super(key: key);
-
-  final Responsive responsive;
-  final IconData icon;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            shape: const CircleBorder(),
-            minimumSize: Size(responsive.hp(20), responsive.hp(20)),
-            padding: const EdgeInsets.all(
-                16.0), // Personaliza el espacio de relleno del botón
-          ),
-          child: FaIcon(
-            icon,
-            size: responsive.hp(10),
-          ),
-        ),
-        const SizedBox(
-          height: AppLayoutConst.spaceM,
-        ),
-        Text(
-          title,
-          style: Theme.of(context)
-              .textTheme
-              .headline4!
-              .copyWith(color: AppColors.primaryBlue),
-        )
-      ],
     );
   }
 }
