@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:citas_med_app/src/presentation/pages/medico/chat/chat_page.dart';
+import 'package:citas_med_app/src/presentation/pages/medico/direcciones/direcciones_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.dart';
 import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page.dart';
@@ -16,6 +17,8 @@ class AppRoutes {
   static const String loginPage = '/login';
   static const String pacHomePage = '/pac/home';
   static const String docHomePage = '/doc/home';
+  static const String docDirrecionesPage = '/doc/direcciones';
+
   static const String docChatPage = '/doc/chat/';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -33,6 +36,8 @@ class AppRoutes {
         return _fadeRoute(const LoginPage(), loginPage, settings);
       case docChatPage:
         return _fadeRoute(const ChatPage(), docChatPage, settings);
+      case docDirrecionesPage:
+        return _fadeRoute(const DirecionesPage(), docDirrecionesPage, settings);
 
       default:
         return _errorRoute();

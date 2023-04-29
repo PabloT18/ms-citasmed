@@ -20,7 +20,13 @@ class _DocHomePageState extends State<DocHomePage> {
   static const List<Widget> _widgetPanels = <Widget>[
     MedCitasPanel(),
     MedPaceintesPanel(),
-    MedChatPanel()
+    MedChatPanel(),
+  ];
+
+  static const List<String> _widgetPanelstitle = <String>[
+    'Citas',
+    'Pacientes',
+    'Chat',
   ];
 
   void _onItemTapped(int index) {
@@ -33,7 +39,7 @@ class _DocHomePageState extends State<DocHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Citas'),
+        title: Text(_widgetPanelstitle.elementAt(_selectedIndex)),
         actions: [
           IconButton(
               color: Colors.white,
@@ -48,6 +54,7 @@ class _DocHomePageState extends State<DocHomePage> {
         child: _widgetPanels.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
               icon: FaIcon(FontAwesomeIcons.calendar), label: 'Citas'),

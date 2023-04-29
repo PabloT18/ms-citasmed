@@ -1,5 +1,6 @@
 import 'package:citas_med_app/src/presentation/widgets/logo.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 class MedDrawerCustom extends StatelessWidget {
@@ -86,7 +87,10 @@ class MedDrawerCustom extends StatelessWidget {
                   size: 14,
                 ),
                 title: const Text('Direccions'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, AppRoutes.docDirrecionesPage);
+                },
               ),
               ListTile(
                 trailing: const Icon(
@@ -115,7 +119,10 @@ class MedDrawerCustom extends StatelessWidget {
                   size: 14,
                 ),
                 title: const Text('Cerrar Sesion'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(
+                      context, AppRoutes.loadingPage);
+                },
               ),
             ],
           ),

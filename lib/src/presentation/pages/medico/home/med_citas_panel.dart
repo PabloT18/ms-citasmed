@@ -65,10 +65,21 @@ class MedCitasPanel extends StatelessWidget {
           const SizedBox(height: AppLayoutConst.marginL),
           Expanded(
             child: ListView.separated(
-              itemCount: 4,
+              itemCount: 10,
               separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) => ListTile(
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Column(
+                          children: const [Text('data')],
+                        ),
+                      );
+                    },
+                  );
+                },
                 title: Text(
                   'Pablo Torres',
                   style: Theme.of(context).textTheme.headline4,
