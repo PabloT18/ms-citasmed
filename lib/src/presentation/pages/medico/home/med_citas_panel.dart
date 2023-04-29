@@ -1,3 +1,4 @@
+import 'package:citas_med_app/src/presentation/widgets/alert_fialog_custom.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -72,10 +73,14 @@ class MedCitasPanel extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
-                        content: Column(
-                          children: const [Text('data')],
-                        ),
+                      return AlertDialogCustom(
+                        title: 'Creación de Cuenta',
+                        content:
+                            'Su proceso de creación pasara por una verificación de su número de licencia médica',
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        canelbutton: true,
                       );
                     },
                   );
