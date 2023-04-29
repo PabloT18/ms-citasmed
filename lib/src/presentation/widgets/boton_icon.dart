@@ -25,6 +25,7 @@ class ButtonUser extends StatelessWidget {
           onPressed: onpress,
           style: ElevatedButton.styleFrom(
             shape: const CircleBorder(),
+
             minimumSize: Size(responsive.hp(20), responsive.hp(20)),
             padding: const EdgeInsets.all(
                 16.0), // Personaliza el espacio de relleno del botón

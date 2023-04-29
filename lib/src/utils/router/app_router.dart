@@ -9,6 +9,8 @@ import 'package:citas_med_app/src/presentation/pages/paciente/registro/pac_regis
 import 'package:citas_med_app/src/presentation/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../presentation/pages/paciente/home/pac_home_page.dart';
+
 class AppRoutes {
   static const String loadingPage = '/';
   static const String pacregisterPage = '/register/pac';
@@ -38,6 +40,8 @@ class AppRoutes {
         return _fadeRoute(const ChatPage(), docChatPage, settings);
       case docDirrecionesPage:
         return _fadeRoute(const DirecionesPage(), docDirrecionesPage, settings);
+      case pacHomePage:
+        return _fadeRoute(const PacHomePage(), docDirrecionesPage, settings);
 
       default:
         return _errorRoute();

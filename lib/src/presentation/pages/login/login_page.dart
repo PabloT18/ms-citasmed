@@ -74,7 +74,24 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.all(
                         16.0), // Personaliza el espacio de relleno del botón
                   ),
-                  child: const Text('Ingresar'),
+                  child: const Text('Ingresar como medico'),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: double.maxFinite,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(AppRoutes.pacHomePage);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(
+                        16.0), // Personaliza el espacio de relleno del botón
+                  ),
+                  child: const Text('Ingresar como paciente'),
                 ),
               ),
               const SizedBox(height: AppLayoutConst.spaceXL),
