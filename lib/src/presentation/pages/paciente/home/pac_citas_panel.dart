@@ -41,6 +41,7 @@ class PacCitasPanel extends StatelessWidget {
                   children: [
                     const SizedBox(height: 5),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         Text(
                           'Dra. Ana',
@@ -50,7 +51,7 @@ class PacCitasPanel extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(width: 120),
+                        // SizedBox(width: 120),
                         Text(
                           '15:00',
                           style: TextStyle(
@@ -71,6 +72,7 @@ class PacCitasPanel extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
                           onTap: () {
@@ -99,7 +101,6 @@ class PacCitasPanel extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(width: 100),
                         InkWell(
                           onTap: () {},
                           child: const Text(
