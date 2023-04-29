@@ -6,6 +6,7 @@ import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.d
 import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/registro/pac_registro_page.dart';
+
 import 'package:citas_med_app/src/presentation/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
 

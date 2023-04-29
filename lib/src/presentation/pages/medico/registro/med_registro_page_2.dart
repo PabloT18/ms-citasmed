@@ -1,12 +1,11 @@
+import 'package:citas_med_app/src/presentation/pages/register/register_vincular_cuenta.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'med_registro_page_2.dart';
-
-class MedRegistroPage extends StatelessWidget {
-  const MedRegistroPage({Key? key}) : super(key: key);
+class MedRegistroPage2 extends StatelessWidget {
+  const MedRegistroPage2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,19 +23,11 @@ class MedRegistroPage extends StatelessWidget {
               const Spacer(flex: 1),
               const Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Datos Personales',
+                  child: Text('Datos Específicos',
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 18))),
-              const SizedBox(height: AppLayoutConst.spaceL),
-              Container(
-                padding: const EdgeInsets.all(40),
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.grey),
-                child: const FaIcon(
-                    size: 60, FontAwesomeIcons.userDoctor, color: Colors.black),
-              ),
               const Spacer(flex: 2),
               TextFormField(
                 textCapitalization: TextCapitalization.sentences,
@@ -49,7 +40,7 @@ class MedRegistroPage extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: AppColors.primaryBlue.withOpacity(0.8))),
-                    labelText: 'Nombre'),
+                    labelText: 'Número de licencia médica'),
                 onChanged: (_) {},
               ),
               const SizedBox(height: AppLayoutConst.spaceL),
@@ -64,12 +55,30 @@ class MedRegistroPage extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: AppColors.primaryBlue.withOpacity(0.8))),
-                    labelText: 'Dirección de Domicilio'),
+                    labelText: 'Email'),
                 onChanged: (_) {},
               ),
               const SizedBox(height: AppLayoutConst.spaceL),
               TextFormField(
                 textCapitalization: TextCapitalization.sentences,
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors.primaryBlue.withOpacity(0.8))),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors.primaryBlue.withOpacity(0.8))),
+                  labelText: 'Contraseña',
+                ),
+                onChanged: (_) {},
+              ),
+              const SizedBox(height: AppLayoutConst.spaceL),
+              TextFormField(
+                textCapitalization: TextCapitalization.sentences,
+                obscureText: true,
                 decoration: InputDecoration(
                     border: const OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
@@ -79,22 +88,7 @@ class MedRegistroPage extends StatelessWidget {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: AppColors.primaryBlue.withOpacity(0.8))),
-                    labelText: 'Telefono'),
-                onChanged: (_) {},
-              ),
-              const SizedBox(height: AppLayoutConst.spaceL),
-              TextFormField(
-                textCapitalization: TextCapitalization.sentences,
-                decoration: InputDecoration(
-                    border: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: AppColors.primaryBlue.withOpacity(0.8))),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: AppColors.primaryBlue.withOpacity(0.8))),
-                    labelText: 'Cédula'),
+                    labelText: 'Repite la Contraseña'),
                 onChanged: (_) {},
               ),
               const Spacer(flex: 3),
@@ -102,14 +96,50 @@ class MedRegistroPage extends StatelessWidget {
                 width: double.maxFinite,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MedRegistroPage2()));
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Creación de cuenta'),
+                          content: const Text(
+                              'Su proceso de creación pasara por una verificación de su número de licencia médica'),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: const Text('Creación de cuenta'),
+                                        content: const Text(
+                                            'Licencia verificada con éxito usuario creado exitosamente'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const RegistroVincularCuentaPage()));
+                                            },
+                                            child: const Text('Aceptar'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                child: const Text('Aceptar')),
+                          ],
+                        );
+                      },
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(16.0)),
-                  child: const Text('Siguiente'),
+                  child: const Text('Crear Cuenta'),
                 ),
               ),
               const Spacer(flex: 1),
