@@ -1,4 +1,6 @@
 import 'package:citas_med_app/src/presentation/pages/paciente/home/especialidad_button.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/widgets/bottom_sheet_custom.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,10 +14,9 @@ class PacBuscarPanel extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-    final size = Size(140, 40);
+    const size = Size(140, 40);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppLayoutConst.paddingL),
       child: Column(
@@ -37,17 +38,21 @@ class PacBuscarPanel extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide:
-                BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
+                    BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide:
-                BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
+                    BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
               ),
               labelText: 'Buscar',
               hintText: 'Buscar',
-              contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
-              suffixIcon: SizedBox(
-                child: Icon(Icons.search, color: AppColors.primaryBlue,),
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+              suffixIcon: const SizedBox(
+                child: Icon(
+                  Icons.search,
+                  color: AppColors.primaryBlue,
+                ),
               ),
             ),
             onChanged: (_) {},
@@ -60,48 +65,42 @@ class PacBuscarPanel extends StatelessWidget {
                 spacing: 5,
                 crossAxisAlignment: WrapCrossAlignment.start,
                 alignment: WrapAlignment.start,
-                children: [
-                  EspecialidadButton(title : 'Medico general'),
-                  EspecialidadButton(title : 'Psicologo'),
-                  EspecialidadButton(title : 'Gastroenterologo'),
-                  EspecialidadButton(title : 'Urología'),
-                  EspecialidadButton(title : 'Dentista'),
-                  EspecialidadButton(title : 'Pediatría'),
-                  EspecialidadButton(title : 'Oncología'),
-                  EspecialidadButton(title : 'Geriatría'),
-                  EspecialidadButton(title : 'Traumatología'),
+                children: const [
+                  EspecialidadButton(title: 'Medico general'),
+                  EspecialidadButton(title: 'Psicologo'),
+                  EspecialidadButton(title: 'Gastroenterologo'),
+                  EspecialidadButton(title: 'Urología'),
+                  EspecialidadButton(title: 'Dentista'),
+                  EspecialidadButton(title: 'Pediatría'),
+                  EspecialidadButton(title: 'Oncología'),
+                  EspecialidadButton(title: 'Geriatría'),
+                  EspecialidadButton(title: 'Traumatología'),
                 ],
               ),
             ],
           ),
           const SizedBox(height: AppLayoutConst.marginL),
           Expanded(
-
             child: ListView.separated(
               itemCount: 4,
               separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
-                  // showDialog(
-                  //   context: context,
-                  //   builder: (context) {
-                  //     return AlertDialogCustom(
-                  //       title: 'Creación de Cuenta',
-                  //       content:
-                  //           'Su proceso de creación pasara por una verificación de su número de licencia médica',
-                  //       onPressed: () {
-                  //         Navigator.pop(context);
-                  //       },
-                  //       canelbutton: true,
-                  //     );
-                  //   },
-                  // );
+                  showModalBottomSheet(
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20),
+                        ),
+                      ),
+                      builder: (context) {
+                        return const BottomSheetCustom();
+                      });
                 },
-
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'DESTACADO',
                       style: TextStyle(
                         color: AppColors.primaryBlue,
@@ -109,8 +108,8 @@ class PacBuscarPanel extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 5),
-                    Text(
+                    const SizedBox(height: 5),
+                    const Text(
                       'Dra. Ana',
                       style: TextStyle(
                         color: Colors.black,
@@ -118,23 +117,28 @@ class PacBuscarPanel extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 5),
-                    Text(
+                    const SizedBox(height: 5),
+                    const Text(
                       'Gastroenterologa',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: [
-                        FaIcon(FontAwesomeIcons.solidStar, size: 18, color: AppColors.primaryBlue),
-                        FaIcon(FontAwesomeIcons.solidStar, size: 18, color: AppColors.primaryBlue),
-                        FaIcon(FontAwesomeIcons.solidStar, size: 18, color: AppColors.primaryBlue),
-                        FaIcon(FontAwesomeIcons.solidStar, size: 18, color: AppColors.primaryBlue),
-                        FaIcon(FontAwesomeIcons.starHalfStroke, size: 18, color: AppColors.primaryBlue),
+                      children: const [
+                        FaIcon(FontAwesomeIcons.solidStar,
+                            size: 18, color: AppColors.primaryBlue),
+                        FaIcon(FontAwesomeIcons.solidStar,
+                            size: 18, color: AppColors.primaryBlue),
+                        FaIcon(FontAwesomeIcons.solidStar,
+                            size: 18, color: AppColors.primaryBlue),
+                        FaIcon(FontAwesomeIcons.solidStar,
+                            size: 18, color: AppColors.primaryBlue),
+                        FaIcon(FontAwesomeIcons.starHalfStroke,
+                            size: 18, color: AppColors.primaryBlue),
                         SizedBox(width: 15),
                         Text(
                           '371 opiniones',
@@ -147,7 +151,6 @@ class PacBuscarPanel extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 leading: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: const BoxDecoration(
@@ -167,4 +170,3 @@ class PacBuscarPanel extends StatelessWidget {
     );
   }
 }
-

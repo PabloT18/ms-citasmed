@@ -1,6 +1,5 @@
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,43 +23,25 @@ class PacCitasPanel extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline3,
               )),
           const SizedBox(height: AppLayoutConst.spaceL),
-          Align(
+          const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Estas son tus citas pendientes',
                 style: TextStyle(fontWeight: FontWeight.bold),
               )),
-
           const SizedBox(height: AppLayoutConst.marginL),
           Expanded(
-
             child: ListView.separated(
-              itemCount: 1,
+              itemCount: 5,
               separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) => ListTile(
-                onTap: () {
-                  // showDialog(
-                  //   context: context,
-                  //   builder: (context) {
-                  //     return AlertDialogCustom(
-                  //       title: 'Creación de Cuenta',
-                  //       content:
-                  //           'Su proceso de creación pasara por una verificación de su número de licencia médica',
-                  //       onPressed: () {
-                  //         Navigator.pop(context);
-                  //       },
-                  //       canelbutton: true,
-                  //     );
-                  //   },
-                  // );
-                },
-
+                onTap: () {},
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Row(
-                      children: [
+                      children: const [
                         Text(
                           'Dra. Ana',
                           style: TextStyle(
@@ -80,23 +61,36 @@ class PacCitasPanel extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 5),
-                    Text(
+                    const SizedBox(height: 5),
+                    const Text(
                       'Gastroenterologa',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                       ),
                     ),
-
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Row(
                       children: [
                         InkWell(
                           onTap: () {
-                            // Aquí puedes agregar la acción que se ejecutará cuando se haga clic en el enlace
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return Container(
+                                  color: Colors.white,
+                                  height: 100,
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 30),
+                                  child: Image.network(
+                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR15Bq5OZHXfINl34Ldh_C1z-JzEh8KxEZANg&usqp=CAU',
+                                    fit: BoxFit.fill,
+                                  ),
+                                );
+                              },
+                            );
                           },
-                          child: Text(
+                          child: const Text(
                             'Ver ubicación',
                             style: TextStyle(
                               color: AppColors.primaryBlue,
@@ -105,12 +99,10 @@ class PacCitasPanel extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(width: 100),
+                        const SizedBox(width: 100),
                         InkWell(
-                          onTap: () {
-                            // Aquí puedes agregar la acción que se ejecutará cuando se haga clic en el enlace
-                          },
-                          child: Text(
+                          onTap: () {},
+                          child: const Text(
                             'Cancelar cita',
                             style: TextStyle(
                               color: AppColors.primaryBlue,
@@ -120,11 +112,9 @@ class PacCitasPanel extends StatelessWidget {
                           ),
                         ),
                       ],
-
                     )
                   ],
                 ),
-
                 leading: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: const BoxDecoration(
@@ -144,5 +134,3 @@ class PacCitasPanel extends StatelessWidget {
     );
   }
 }
-
-

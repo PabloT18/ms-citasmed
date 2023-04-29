@@ -8,13 +8,8 @@ class PacChatPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Chat'),
-      ),
-      body: const Center(
-        child: Text('Chat'),
-      ),
+    return const Center(
+      child: Text('Chat'),
     );
   }
 }
