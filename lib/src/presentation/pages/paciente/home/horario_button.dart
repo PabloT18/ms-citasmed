@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HorarioButton extends StatelessWidget {
-  const HorarioButton(
-      {required this.title, required this.color, required this.colorIcono});
+  const HorarioButton({
+    required this.title,
+    required this.color,
+    required this.colorIcono,
+  });
   final String title;
   final Color color;
   final Color colorIcono;

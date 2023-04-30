@@ -1,6 +1,4 @@
-import 'package:citas_med_app/src/presentation/pages/paciente/home/especialidad_button.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/widgets/switchAction.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
@@ -53,9 +51,9 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
             ListTile(
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 20),
-                  const Text(
+                children: const [
+                  SizedBox(height: 20),
+                  Text(
                     '0103767661',
                     style: TextStyle(
                       color: Colors.grey,
@@ -63,8 +61,8 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 5),
-                  const Text(
+                  SizedBox(height: 5),
+                  Text(
                     'Dra. Ana',
                     style: TextStyle(
                       color: Colors.black,
@@ -72,8 +70,8 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 5),
-                  const Text(
+                  SizedBox(height: 5),
+                  Text(
                     'Gastroenterologa',
                     style: TextStyle(
                       color: Colors.black,
@@ -97,10 +95,10 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
                         maxLines: 1,
                         style: TextStyle(fontWeight: FontWeight.normal)),
                   ),
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5),
                   Text('Clínica Monte Sinaí',
                       style: TextStyle(fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5),
                 ],
               ),
               subtitle: const Text('Miguel Cordero Dávila 6-140'),
@@ -112,7 +110,7 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
               spacing: 50,
               crossAxisAlignment: WrapCrossAlignment.center,
               alignment: WrapAlignment.center,
-              children: [
+              children: const [
                 Align(
                   alignment: Alignment.center,
                   child: HorarioButton(
@@ -133,7 +131,7 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
               ),
             )),
             const SizedBox(height: 25),
-            Divider(
+            const Divider(
               color: Color.fromRGBO(230, 230, 230, 0.5),
               thickness: 2,
             ),
@@ -141,7 +139,7 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Align(
+                const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Pagar en el consultorio?',
@@ -166,7 +164,7 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
               ],
             ),
             const SizedBox(height: 10),
-            Divider(
+            const Divider(
               color: Color.fromRGBO(230, 230, 230, 0.5),
               thickness: 2,
             ),
@@ -184,13 +182,13 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
                   fontWeight: FontWeight.bold,
                 ),
               )),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                  children: const [
                     // spacing: 5,
                     // alignment: WrapAlignment.center,
                     SizedBox(

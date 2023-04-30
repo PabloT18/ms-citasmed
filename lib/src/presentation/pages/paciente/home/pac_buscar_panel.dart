@@ -1,11 +1,8 @@
 import 'package:citas_med_app/src/presentation/pages/paciente/home/especialidad_button.dart';
-import 'package:citas_med_app/src/presentation/pages/paciente/widgets/bottom_sheet_custom.dart';
-
-import 'package:flutter/cupertino.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_doctor_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:citas_med_app/src/presentation/widgets/alert_fialog_custom.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 
@@ -86,16 +83,10 @@ class PacBuscarPanel extends StatelessWidget {
               separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
-                  showModalBottomSheet(
-                      context: context,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(20),
-                        ),
-                      ),
-                      builder: (context) {
-                        return const BottomSheetCustom();
-                      });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PacDoctor()),
+                  ); // Aquí puedes agregar la acción que se ejecutará cuando se haga clic en el enlace
                 },
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

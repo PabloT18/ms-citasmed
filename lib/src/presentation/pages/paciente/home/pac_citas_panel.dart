@@ -79,15 +79,10 @@ class PacCitasPanel extends StatelessWidget {
                             showDialog(
                               context: context,
                               builder: (context) {
-                                return Container(
-                                  color: Colors.white,
-                                  height: 100,
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 30),
-                                  child: Image.network(
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR15Bq5OZHXfINl34Ldh_C1z-JzEh8KxEZANg&usqp=CAU',
-                                    fit: BoxFit.fill,
-                                  ),
+                                return AlertDialog(
+                                  contentPadding: const EdgeInsets.all(2),
+                                  content: Image.asset(
+                                      'lib/src/assets/images/googlemap.jpg'),
                                 );
                               },
                             );

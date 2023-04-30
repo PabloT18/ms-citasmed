@@ -1,19 +1,21 @@
-import 'package:citas_med_app/src/presentation/pages/paciente/home/especialidad_button.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/home/horario_button.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../utils/router/app_router.dart';
-
-class PacAgendarCita extends StatelessWidget {
+class PacAgendarCita extends StatefulWidget {
   const PacAgendarCita({Key? key}) : super(key: key);
 
   @override
+  State<PacAgendarCita> createState() => _PacAgendarCitaState();
+}
+
+class _PacAgendarCitaState extends State<PacAgendarCita> {
+  bool _otroPaciente = false;
+  @override
   Widget build(BuildContext context) {
-    bool _isEnabled = false;
+    bool isEnabled = false;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kevin'),
@@ -31,9 +33,9 @@ class PacAgendarCita extends StatelessWidget {
           ListTile(
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 20),
-                const Text(
+              children: const [
+                SizedBox(height: 20),
+                Text(
                   '0103767661',
                   style: TextStyle(
                     color: Colors.grey,
@@ -41,8 +43,8 @@ class PacAgendarCita extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 5),
-                const Text(
+                SizedBox(height: 5),
+                Text(
                   'Dra. Ana',
                   style: TextStyle(
                     color: Colors.black,
@@ -50,8 +52,8 @@ class PacAgendarCita extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 5),
-                const Text(
+                SizedBox(height: 5),
+                Text(
                   'Gastroenterologa',
                   style: TextStyle(
                     color: Colors.black,
@@ -75,10 +77,10 @@ class PacAgendarCita extends StatelessWidget {
                       maxLines: 1,
                       style: TextStyle(fontWeight: FontWeight.normal)),
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: 5),
                 Text('Clínica Monte Sinaí',
                     style: TextStyle(fontWeight: FontWeight.bold)),
-                const SizedBox(height: 5),
+                SizedBox(height: 5),
               ],
             ),
             subtitle: const Text('Miguel Cordero Dávila 6-140'),
@@ -90,7 +92,7 @@ class PacAgendarCita extends StatelessWidget {
             spacing: 50,
             crossAxisAlignment: WrapCrossAlignment.start,
             alignment: WrapAlignment.start,
-            children: [
+            children: const [
               HorarioButton(
                   title: '15:00',
                   color: AppColors.primaryBlue,
@@ -118,7 +120,7 @@ class PacAgendarCita extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 25),
-          Divider(
+          const Divider(
             color: Color.fromRGBO(230, 230, 230, 0.5),
             thickness: 2,
           ),
@@ -126,27 +128,80 @@ class PacAgendarCita extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Align(
+              const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'La cita es para alguien más?',
                   )),
-              FaIcon(FontAwesomeIcons.toggleOn,
-                  size: 25, color: AppColors.primaryBlue),
+              Switch(
+                  value: !_otroPaciente,
+                  onChanged: (_) {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const PacAgendarCita2()),
+                    // );
+                    setState(() {
+                      _otroPaciente = !_otroPaciente;
+                    });
+                  }),
             ],
           ),
           const SizedBox(height: 10),
-          Divider(
+          const Divider(
             color: Color.fromRGBO(230, 230, 230, 0.5),
             thickness: 2,
           ),
-          Spacer(),
+          if (_otroPaciente) ...[
+            TextFormField(
+              textCapitalization: TextCapitalization.sentences,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
+                ),
+                labelText: 'Nombre',
+                hintText: 'Nombre',
+              ),
+              onChanged: (_) {},
+            ),
+            const SizedBox(
+              height: AppLayoutConst.spaceL,
+            ),
+            TextFormField(
+              textCapitalization: TextCapitalization.sentences,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      BorderSide(color: AppColors.primaryBlue.withOpacity(0.8)),
+                ),
+                labelText: 'Cédula',
+                hintText: 'Cédula',
+              ),
+              onChanged: (_) {},
+            ),
+            const SizedBox(
+              height: AppLayoutConst.spaceL,
+            ),
+          ],
           SizedBox(
             width: double.maxFinite,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.pacSeleccionarMedioPago);
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(
                     16.0), // Personaliza el espacio de relleno del botón
@@ -154,7 +209,6 @@ class PacAgendarCita extends StatelessWidget {
               child: const Text('Agendar Cita'),
             ),
           ),
-          const SizedBox(height: 20),
         ]),
       ),
     );
