@@ -5,12 +5,15 @@ import 'package:citas_med_app/src/presentation/pages/medico/direcciones/direccio
 import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.dart';
 import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_agendar_panel.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/registro/pac_registro_page.dart';
 
 import 'package:citas_med_app/src/presentation/pages/register/register_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../presentation/pages/paciente/home/pac_home_page.dart';
+import '../../presentation/pages/paciente/home/pac_medio_pago.dart';
+import '../../presentation/pages/paciente/home/pago_card.dart';
 
 class AppRoutes {
   static const String loadingPage = '/';
@@ -23,6 +26,9 @@ class AppRoutes {
   static const String docDirrecionesPage = '/doc/direcciones';
 
   static const String docChatPage = '/doc/chat/';
+  static const String pacAgendarCita = '/pac/agendarcita';
+  static const String pacSeleccionarMedioPago = '/pac/seleccionarMedioPago';
+  static const String pagoCard = '/pac/pagoTarjeta';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     log('--------------------------------------${settings.name}');
@@ -43,6 +49,13 @@ class AppRoutes {
         return _fadeRoute(const DirecionesPage(), docDirrecionesPage, settings);
       case pacHomePage:
         return _fadeRoute(const PacHomePage(), docDirrecionesPage, settings);
+      case pacAgendarCita:
+        return _fadeRoute(const PacAgendarCita(), pacAgendarCita, settings);
+      case pacSeleccionarMedioPago:
+        return _fadeRoute(
+            const PacElegirMedioPago(), pacSeleccionarMedioPago, settings);
+      case pagoCard:
+        return _fadeRoute(const PagoCard(), pagoCard, settings);
 
       default:
         return _errorRoute();

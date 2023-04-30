@@ -17,8 +17,15 @@ class AlertDialogCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+          bottom: Radius.circular(20),
+        ),
+      ),
       title: Text(
         title,
+        /*  */
         textAlign: TextAlign.center,
       ),
       content: Text(

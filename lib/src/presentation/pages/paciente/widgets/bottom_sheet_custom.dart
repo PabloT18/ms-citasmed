@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../utils/router/app_router.dart';
+import '../home/pac_agendar_panel.dart';
+
 class BottomSheetCustom extends StatefulWidget {
   const BottomSheetCustom({
     Key? key,
@@ -263,7 +266,9 @@ class _BottomSheetCustomState extends State<BottomSheetCustom> {
                 child: const Text('13:00'),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.pacAgendarCita);
+                  },
                   child: Row(
                     children: const [
                       Text('Ver más'),

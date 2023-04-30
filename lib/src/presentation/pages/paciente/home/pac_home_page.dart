@@ -15,7 +15,6 @@ class PacHomePage extends StatefulWidget {
   }
 }
 
-
 class _PacHomePageState extends State<PacHomePage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetPanels = <Widget>[
@@ -75,4 +74,3 @@ class _PacHomePageState extends State<PacHomePage> {
     );
   }
 }
-

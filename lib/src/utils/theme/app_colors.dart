@@ -28,7 +28,8 @@ class AppColors {
 
   static const textosBlack = Color(0xff403f3b);
   static const btnBackground = Color(0xff0065b0);
-
+  static const btnBackgroundDisabled = Color.fromARGB(255, 122, 157, 185);
+  static const btnWhite = Color.fromARGB(255, 255, 255, 255);
   static const colorsHorario = [
     Color(0xffFFB6C1),
     Color(0xffE6E6FA),
