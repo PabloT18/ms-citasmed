@@ -11,20 +11,20 @@ class EspecialidadButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () {},
-      icon: FaIcon(
+      icon: const FaIcon(
         FontAwesomeIcons.userDoctor,
         color: AppColors.primaryBlue,
         size: 10,
       ),
       label: Text(
         title,
-        style: TextStyle(fontSize: 10.0, color: AppColors.primaryBlue),
+        style: const TextStyle(fontSize: 10.0, color: AppColors.primaryBlue),
       ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-        side: BorderSide(color: AppColors.primaryBlue, width: 1.0),
-        minimumSize: Size(120, 30),
+        side: const BorderSide(color: AppColors.primaryBlue, width: 1.0),
+        minimumSize: const Size(120, 30),
       ),
     );
   }

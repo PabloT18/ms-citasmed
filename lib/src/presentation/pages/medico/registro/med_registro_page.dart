@@ -1,9 +1,8 @@
 import 'package:citas_med_app/src/utils/responsive.dart';
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'med_registro_page_2.dart';
 
 class MedRegistroPage extends StatelessWidget {
   const MedRegistroPage({Key? key}) : super(key: key);
@@ -102,10 +101,11 @@ class MedRegistroPage extends StatelessWidget {
                 width: double.maxFinite,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MedRegistroPage2()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => const MedRegistroPage2()));
+                    Navigator.pushNamed(context, AppRoutes.medregister2Page);
                   },
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(16.0)),

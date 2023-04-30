@@ -1,6 +1,6 @@
 import 'package:citas_med_app/src/presentation/pages/register/register_vincular_cuenta.dart';
+import 'package:citas_med_app/src/presentation/widgets/alert_fialog_custom.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../utils/responsive.dart';
 import '../../../../utils/theme/app_colors.dart';
@@ -101,22 +101,18 @@ class PacRegistro2Page extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Creación de Usuario'),
-                          content: const Text('Usuario creado correctamente'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const RegistroVincularCuentaPage()));
-                              },
-                              child: const Text('Cerrar'),
-                            ),
-                          ],
+                        return AlertDialogCustom(
+                          canelbutton: false,
+                          title: 'Creación de Usuario',
+                          content: 'Usuario creado correctamente',
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RegistroVincularCuentaPage()));
+                          },
                         );
                       },
                     );

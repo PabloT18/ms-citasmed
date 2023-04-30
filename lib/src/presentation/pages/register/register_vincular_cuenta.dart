@@ -121,7 +121,8 @@ class RegistroVincularCuentaPage extends StatelessWidget {
               const Spacer(flex: 3),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, AppRoutes.loginPage);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, AppRoutes.loginPage, (route) => false);
                 },
                 child: const Text('Omitir'),
               ),

@@ -1,8 +1,8 @@
-import 'package:citas_med_app/src/presentation/pages/register/register_vincular_cuenta.dart';
+import 'package:citas_med_app/src/presentation/widgets/alert_fialog_custom.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MedRegistroPage2 extends StatelessWidget {
   const MedRegistroPage2({Key? key}) : super(key: key);
@@ -99,40 +99,29 @@ class MedRegistroPage2 extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Creación de cuenta'),
-                          content: const Text(
-                              'Su proceso de creación pasara por una verificación de su número de licencia médica'),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AlertDialog(
-                                        title: const Text('Creación de cuenta'),
-                                        content: const Text(
-                                            'Licencia verificada con éxito usuario creado exitosamente'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const RegistroVincularCuentaPage()));
-                                            },
-                                            child: const Text('Aceptar'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                },
-                                child: const Text('Aceptar')),
-                          ],
+                        return AlertDialogCustom(
+                          title: 'Creación de cuenta',
+                          content:
+                              'Su proceso de creación pasara por una verificación de su número de licencia médica',
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialogCustom(
+                                  title: 'Creación de cuenta',
+                                  content:
+                                      'Licencia verificada con éxito usuario creado exitosamente',
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+
+                                    Navigator.pushNamed(context,
+                                        AppRoutes.registerVincularCuentasPage);
+                                  },
+                                );
+                              },
+                            );
+                          },
                         );
                       },
                     );

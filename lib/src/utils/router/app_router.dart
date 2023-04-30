@@ -5,6 +5,7 @@ import 'package:citas_med_app/src/presentation/pages/medico/direcciones/direccio
 import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.dart';
 import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page.dart';
+import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page_2.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_agendar_panel.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/registro/pac_registro_page.dart';
 
@@ -14,11 +15,14 @@ import 'package:flutter/material.dart';
 import '../../presentation/pages/paciente/home/pac_home_page.dart';
 import '../../presentation/pages/paciente/home/pac_medio_pago.dart';
 import '../../presentation/pages/paciente/home/pago_card.dart';
+import '../../presentation/pages/register/register_vincular_cuenta.dart';
 
 class AppRoutes {
   static const String loadingPage = '/';
   static const String pacregisterPage = '/register/pac';
   static const String medregisterPage = '/register/doc';
+  static const String medregister2Page = '/register/doc2';
+  static const String registerVincularCuentasPage = '/register/vincular';
 
   static const String loginPage = '/login';
   static const String pacHomePage = '/pac/home';
@@ -37,6 +41,11 @@ class AppRoutes {
         return _fadeRoute(const RegisterPage(), loginPage, settings);
       case medregisterPage:
         return _fadeRoute(const MedRegistroPage(), medregisterPage, settings);
+      case medregister2Page:
+        return _fadeRoute(const MedRegistroPage2(), medregister2Page, settings);
+      case registerVincularCuentasPage:
+        return _fadeRoute(const RegistroVincularCuentaPage(),
+            registerVincularCuentasPage, settings);
       case pacregisterPage:
         return _fadeRoute(const PacRegistroPage(), pacregisterPage, settings);
       case docHomePage:

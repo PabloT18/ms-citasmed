@@ -1,13 +1,9 @@
-import 'package:citas_med_app/src/presentation/pages/paciente/home/especialidad_button.dart';
-import 'package:citas_med_app/src/presentation/pages/paciente/widgets/switchAction.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 
 import '../../../widgets/alert_fialog_custom.dart';
-import '../widgets/buttonIcons.dart';
 import 'horario_button.dart';
 
 class PagoCard extends StatelessWidget {
@@ -36,9 +32,9 @@ class PagoCard extends StatelessWidget {
             ListTile(
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 20),
-                  const Text(
+                children: const [
+                  SizedBox(height: 20),
+                  Text(
                     '0103767661',
                     style: TextStyle(
                       color: Colors.grey,
@@ -46,8 +42,8 @@ class PagoCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 5),
-                  const Text(
+                  SizedBox(height: 5),
+                  Text(
                     'Dra. Ana',
                     style: TextStyle(
                       color: Colors.black,
@@ -55,8 +51,8 @@ class PagoCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 5),
-                  const Text(
+                  SizedBox(height: 5),
+                  Text(
                     'Gastroenterologa',
                     style: TextStyle(
                       color: Colors.black,
@@ -80,10 +76,10 @@ class PagoCard extends StatelessWidget {
                         maxLines: 1,
                         style: TextStyle(fontWeight: FontWeight.normal)),
                   ),
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5),
                   Text('Clínica Monte Sinaí',
                       style: TextStyle(fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5),
                 ],
               ),
               subtitle: const Text('Miguel Cordero Dávila 6-140'),
@@ -95,7 +91,7 @@ class PagoCard extends StatelessWidget {
               spacing: 50,
               crossAxisAlignment: WrapCrossAlignment.center,
               alignment: WrapAlignment.center,
-              children: [
+              children: const [
                 Align(
                   alignment: Alignment.center,
                   child: HorarioButton(
@@ -116,14 +112,14 @@ class PagoCard extends StatelessWidget {
               ),
             )),
             const SizedBox(height: 25),
-            Divider(
+            const Divider(
               color: Color.fromRGBO(230, 230, 230, 0.5),
               thickness: 2,
             ),
             const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -134,7 +130,7 @@ class PagoCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            Divider(
+            const Divider(
               color: Color.fromRGBO(230, 230, 230, 0.5),
               thickness: 2,
             ),
@@ -148,7 +144,7 @@ class PagoCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             )),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Center(
