@@ -4,6 +4,7 @@ import 'package:citas_med_app/src/presentation/pages/medico/chat/chat_page.dart'
 import 'package:citas_med_app/src/presentation/pages/medico/direcciones/direcciones_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.dart';
 import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
+import 'package:citas_med_app/src/presentation/pages/medico/perfil/med_paciente_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page_2.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_agendar_panel.dart';
@@ -29,7 +30,11 @@ class AppRoutes {
   static const String docHomePage = '/doc/home';
   static const String docDirrecionesPage = '/doc/direcciones';
 
+  ///MEDICO ROUTES
   static const String docChatPage = '/doc/chat/';
+  static const String docPacientePerfilPage = '/doc/paciente/perfil';
+
+  ///PACIENTE ROUTERS
   static const String pacAgendarCita = '/pac/agendarcita';
   static const String pacSeleccionarMedioPago = '/pac/seleccionarMedioPago';
   static const String pagoCard = '/pac/pagoTarjeta';
@@ -39,23 +44,33 @@ class AppRoutes {
     switch (settings.name) {
       case loadingPage:
         return _fadeRoute(const RegisterPage(), loginPage, settings);
+
+      case registerVincularCuentasPage:
+        return _fadeRoute(const RegistroVincularCuentaPage(),
+            registerVincularCuentasPage, settings);
+
+      case loginPage:
+        return _fadeRoute(const LoginPage(), loginPage, settings);
+
+      //Medico Doctor
       case medregisterPage:
         return _fadeRoute(const MedRegistroPage(), medregisterPage, settings);
       case medregister2Page:
         return _fadeRoute(const MedRegistroPage2(), medregister2Page, settings);
-      case registerVincularCuentasPage:
-        return _fadeRoute(const RegistroVincularCuentaPage(),
-            registerVincularCuentasPage, settings);
-      case pacregisterPage:
-        return _fadeRoute(const PacRegistroPage(), pacregisterPage, settings);
       case docHomePage:
         return _fadeRoute(const DocHomePage(), docHomePage, settings);
-      case loginPage:
-        return _fadeRoute(const LoginPage(), loginPage, settings);
       case docChatPage:
         return _fadeRoute(const ChatPage(), docChatPage, settings);
+      case docPacientePerfilPage:
+        return _fadeRoute(
+            const MedPerfilPacientePage(), docPacientePerfilPage, settings);
       case docDirrecionesPage:
         return _fadeRoute(const DirecionesPage(), docDirrecionesPage, settings);
+
+      /// PACEINTE
+      case pacregisterPage:
+        return _fadeRoute(const PacRegistroPage(), pacregisterPage, settings);
+
       case pacHomePage:
         return _fadeRoute(const PacHomePage(), docDirrecionesPage, settings);
       case pacAgendarCita:

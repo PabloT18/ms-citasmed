@@ -1,4 +1,5 @@
 import 'package:citas_med_app/src/utils/responsive.dart';
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -41,7 +42,9 @@ class MedPaceintesPanel extends StatelessWidget {
               itemCount: 4,
               separatorBuilder: (context, index) => const Divider(),
               itemBuilder: (context, index) => ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.docPacientePerfilPage);
+                },
                 title: Text(
                   'Juan Perez',
                   style: Theme.of(context).textTheme.headline4,
