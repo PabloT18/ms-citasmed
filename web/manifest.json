@@ -1,6 +1,6 @@
 {
-    "name": "citas_med_app",
-    "short_name": "citas_med_app",
+    "name": "CitasMED",
+    "short_name": "CitasMED",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

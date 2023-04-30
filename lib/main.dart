@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CitasMED',
+      debugShowCheckedModeBanner: false,
       theme: AppThemeData.light,
       initialRoute: AppRoutes.loadingPage,
       onGenerateRoute: AppRoutes.generateRoute,

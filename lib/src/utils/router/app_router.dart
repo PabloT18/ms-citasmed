@@ -1,16 +1,19 @@
 import 'dart:developer';
 
 import 'package:citas_med_app/src/presentation/pages/medico/chat/chat_page.dart';
+import 'package:citas_med_app/src/presentation/pages/medico/cobros/cobros_page.dart';
+import 'package:citas_med_app/src/presentation/pages/medico/cobros/registrag_cuenta_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/direcciones/direcciones_page.dart';
+import 'package:citas_med_app/src/presentation/pages/medico/direcciones/registro_horario_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/direcciones/regsitro_nuevo_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.dart';
 import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/perfil/med_paciente_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page_2.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/chat/pac_chat_page.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_agendar_panel.dart';
-import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_doctor_panel.dart';
-import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_perfil_page.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_doctor_page.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/registro/pac_registro_page.dart';
 
 import 'package:citas_med_app/src/presentation/pages/register/register_page.dart';
@@ -35,7 +38,11 @@ class AppRoutes {
   ///MEDICO ROUTES
   static const String docChatPage = '/doc/chat/';
   static const String docDirrecionesPage = '/doc/direcciones';
+  static const String docCobrosPage = '/doc/cobros';
+  static const String docCobrosRegistroPage = '/doc/cobros/registro';
+
   static const String docDirrecionesRegistroPage = '/doc/direcciones/registro';
+  static const String docDirrecionnesHorarioPage = '/doc/direcciones/horario';
 
   static const String docPacientePerfilPage = '/doc/paciente/perfil';
 
@@ -75,17 +82,26 @@ class AppRoutes {
             const MedPerfilPacientePage(), docPacientePerfilPage, settings);
       case docDirrecionesPage:
         return _fadeRoute(const DirecionesPage(), docDirrecionesPage, settings);
+      case docCobrosPage:
+        return _fadeRoute(const CobrosPage(), docCobrosPage, settings);
+      case docCobrosRegistroPage:
+        return _fadeRoute(
+            const RegistrarCuentaCobroPage(), docCobrosRegistroPage, settings);
 
       case docDirrecionesRegistroPage:
         return _fadeRoute(const MedDireccionRegistroPage(),
             docDirrecionesRegistroPage, settings);
+
+      case docDirrecionnesHorarioPage:
+        return _fadeRoute(const MedRegsitroHorarioPage(),
+            docDirrecionnesHorarioPage, settings);
 
       /// PACEINTE
       case pacregisterPage:
         return _fadeRoute(const PacRegistroPage(), pacregisterPage, settings);
       case pacChatPage:
       case pacPerfil:
-        return _fadeRoute(const PacPerfilPacientePage(), pacPerfil, settings);
+        return _fadeRoute(const PacChatPage(), pacPerfil, settings);
       case pacHomePage:
         return _fadeRoute(const PacHomePage(), pacHomePage, settings);
       case pacAgendarCita:

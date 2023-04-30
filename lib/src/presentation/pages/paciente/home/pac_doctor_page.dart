@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
@@ -9,32 +10,28 @@ class PacDoctorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isEnabled = false;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kevin'),
-        actions: [
-          IconButton(
-              color: Colors.white,
-              onPressed: () {},
-              icon: const FaIcon(FontAwesomeIcons.solidCircleUser))
-        ],
+        title: const Text('Dra. Ana'),
+        actions: const [],
       ),
       body: Padding(
         padding:
             const EdgeInsets.symmetric(horizontal: AppLayoutConst.paddingL),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const SizedBox(height: 30),
-          Container(
-            padding: const EdgeInsets.all(40),
-            decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromRGBO(230, 230, 230, 1)),
-            alignment: Alignment.center,
-            child: const FaIcon(
-                size: 40,
-                FontAwesomeIcons.userDoctor,
-                color: AppColors.primaryBlue),
+          ZoomIn(
+            child: Container(
+              padding: const EdgeInsets.all(40),
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color.fromRGBO(230, 230, 230, 1)),
+              alignment: Alignment.center,
+              child: const FaIcon(
+                  size: 40,
+                  FontAwesomeIcons.userDoctor,
+                  color: AppColors.primaryBlue),
+            ),
           ),
           ListTile(
             title: Column(

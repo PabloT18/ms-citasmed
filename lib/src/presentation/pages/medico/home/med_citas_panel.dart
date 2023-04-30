@@ -1,4 +1,4 @@
-import 'package:citas_med_app/src/presentation/widgets/alert_fialog_custom.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -68,52 +68,33 @@ class MedCitasPanel extends StatelessWidget {
             child: ListView.separated(
               itemCount: 10,
               separatorBuilder: (context, index) => const Divider(),
-              itemBuilder: (context, index) => ListTile(
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialogCustom(
-                        title: 'Creación de Cuenta',
-                        content:
-                            'Su proceso de creación pasara por una verificación de su número de licencia médica',
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        canelbutton: true,
-                      );
-                    },
-                  );
-
-                  // showModalBottomSheet(
-                  //     context: context,
-                  //     builder: (context) {
-                  //       return const BottomSheetCustom();
-                  //     });
-                },
-                title: Text(
-                  'Pablo Torres',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('Clinica Monte Sinai'),
-                    SizedBox(height: AppLayoutConst.marginS),
-                    Text('Fecha: 20/04/23'),
-                    SizedBox(height: AppLayoutConst.marginS),
-                    Text('Hora: 9:00am - 10:00am'),
-                  ],
-                ),
-                leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.primaryBlue,
+              itemBuilder: (context, index) => FadeInRight(
+                child: ListTile(
+                  onTap: () {},
+                  title: Text(
+                    'Pablo Torres',
+                    style: Theme.of(context).textTheme.headline4,
                   ),
-                  child: const FaIcon(
-                    FontAwesomeIcons.userLarge,
-                    color: Colors.white,
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text('Clinica Monte Sinai'),
+                      SizedBox(height: AppLayoutConst.marginS),
+                      Text('Fecha: 20/04/23'),
+                      SizedBox(height: AppLayoutConst.marginS),
+                      Text('Hora: 9:00am - 10:00am'),
+                    ],
+                  ),
+                  leading: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.primaryBlue,
+                    ),
+                    child: const FaIcon(
+                      FontAwesomeIcons.userLarge,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),

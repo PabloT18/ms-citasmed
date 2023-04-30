@@ -1,4 +1,5 @@
 import 'package:citas_med_app/src/presentation/pages/paciente/widgets/switchAction.dart';
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
@@ -205,7 +206,10 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPagoPage> {
 
             //End Tarjeta
             // Spacer(),
-            if (_isEnabled)
+            if (_isEnabled) ...[
+              const SizedBox(
+                height: 60,
+              ),
               SizedBox(
                 width: double.maxFinite,
                 child: ElevatedButton(
@@ -218,6 +222,8 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPagoPage> {
                           content: 'Puede revisar en su agenda',
                           onPressed: () {
                             Navigator.pop(context);
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                AppRoutes.pacHomePage, (route) => false);
                           },
                           canelbutton: false,
                         );
@@ -232,6 +238,7 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPagoPage> {
                   child: const Text('Agendar Cita'),
                 ),
               ),
+            ],
             const SizedBox(height: 20),
           ]),
         ),

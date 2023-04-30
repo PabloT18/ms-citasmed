@@ -1,3 +1,4 @@
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/responsive.dart';
@@ -99,7 +100,10 @@ class MedDireccionRegistroPage extends StatelessWidget {
               SizedBox(
                 width: double.maxFinite,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, AppRoutes.docDirrecionnesHorarioPage);
+                  },
                   style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(16.0)),
                   child: const Text('Siguiente'),

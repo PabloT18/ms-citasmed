@@ -18,7 +18,7 @@ class _PacAgendarCitaState extends State<PacAgendarCita> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kevin'),
+        title: const Text('Dra. Ana'),
         actions: [
           IconButton(
               color: Colors.white,
@@ -198,6 +198,7 @@ class _PacAgendarCitaState extends State<PacAgendarCita> {
               height: AppLayoutConst.spaceL,
             ),
           ],
+          const Spacer(),
           SizedBox(
             width: double.maxFinite,
             child: ElevatedButton(
@@ -211,6 +212,9 @@ class _PacAgendarCitaState extends State<PacAgendarCita> {
               child: const Text('Agendar Cita'),
             ),
           ),
+          const SizedBox(
+            height: AppLayoutConst.spaceXL,
+          )
         ]),
       ),
     );

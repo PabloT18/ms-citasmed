@@ -1,3 +1,4 @@
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
@@ -240,6 +241,8 @@ class PagoCard extends StatelessWidget {
                         content: 'Su pago se ha realizado con éxito',
                         onPressed: () {
                           Navigator.pop(context);
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, AppRoutes.pacHomePage, (route) => false);
                         },
                         canelbutton: false,
                       );

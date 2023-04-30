@@ -1,6 +1,6 @@
-import 'package:citas_med_app/src/presentation/widgets/logo.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/router/app_router.dart';
+import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MedDrawerCustom extends StatelessWidget {
@@ -16,14 +16,22 @@ class MedDrawerCustom extends StatelessWidget {
       child: Column(children: [
         UserAccountsDrawerHeader(
           arrowColor: Colors.red,
-          currentAccountPicture: const LogoApp(),
+          currentAccountPicture: const Center(
+            child: Text(
+              'CitasMED',
+              style: TextStyle(
+                  color: AppColors.secondaryBlue,
+                  fontSize: 40,
+                  fontWeight: FontWeight.w900),
+            ),
+          ),
           currentAccountPictureSize: Size(responsive.wp(80), 100),
           accountEmail: const Text(
             'ana@mail.com',
             style: TextStyle(color: Colors.black),
           ),
           accountName: const Text(
-            'Pablo',
+            'Ana',
             style: TextStyle(color: Colors.black),
           ),
           decoration: BoxDecoration(
@@ -98,7 +106,10 @@ class MedDrawerCustom extends StatelessWidget {
                   size: 14,
                 ),
                 title: const Text('Cuentas / Cobros'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, AppRoutes.docCobrosPage);
+                },
               ),
               const SizedBox(height: AppLayoutConst.spaceM),
               const Divider(),
