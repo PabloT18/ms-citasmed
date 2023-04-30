@@ -101,7 +101,7 @@ class PacDrawerCustom extends StatelessWidget {
                 ),
                 title: const Text('Mi Perfil'),
                 onTap: () {
-                  print('object');
+                  Navigator.pushNamed(context, AppRoutes.pacPerfil);
                 },
               ),
               ListTile(

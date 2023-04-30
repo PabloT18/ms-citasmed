@@ -2,8 +2,8 @@ import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class MedPerfilPacientePage extends StatelessWidget {
-  const MedPerfilPacientePage({Key? key}) : super(key: key);
+class PacPerfilPacientePage extends StatelessWidget {
+  const PacPerfilPacientePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

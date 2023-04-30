@@ -8,16 +8,16 @@ import '../../../widgets/alert_fialog_custom.dart';
 import '../widgets/buttonIcons.dart';
 import 'horario_button.dart';
 
-class PacElegirMedioPago extends StatefulWidget {
-  const PacElegirMedioPago({
+class PacElegirMedioPagoPage extends StatefulWidget {
+  const PacElegirMedioPagoPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<PacElegirMedioPago> createState() => _PacElegirMedioPagoState();
+  State<PacElegirMedioPagoPage> createState() => _PacElegirMedioPagoState();
 }
 
-class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
+class _PacElegirMedioPagoState extends State<PacElegirMedioPagoPage> {
   bool _isEnabled = false;
   void changeVisibilityPay() {
     setState(() {
@@ -145,22 +145,6 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
                       'Pagar en el consultorio?',
                     )),
                 SwitchActionCustom(onChangeTap: changeVisibilityPay),
-                // Column(
-                //   children: [SwitchActionCustom()],
-                //   // children: [
-                //   //   Switch(
-                //   //     value: isSwitched,
-                //   //     onChanged: (value) {
-                //   //       isSwitched = value;
-                //   //       _isEnabled = !_isEnabled;
-                //   //     },
-                //   //     activeTrackColor: AppColors.primaryBlue,
-                //   //     activeColor: AppColors.primaryBlue,
-                //   //   ),
-                //   // ],
-                // )
-                // FaIcon(FontAwesomeIcons.toggleOff,
-                //     size: 25, color: AppColors.btnBackgroundDisabled),
               ],
             ),
             const SizedBox(height: 10),
@@ -192,16 +176,24 @@ class _PacElegirMedioPagoState extends State<PacElegirMedioPago> {
                     // spacing: 5,
                     // alignment: WrapAlignment.center,
                     SizedBox(
+                        height: 50,
                         width: double.maxFinite,
                         child: ButtonIcons(
+                          onpress: false,
+                          sizeIcon: 20,
                           title: 'Payphone',
                           icon: FontAwesomeIcons.phoneAlt,
                           isActive: false,
                         )),
 
                     SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                        height: 50,
                         width: double.maxFinite,
                         child: ButtonIcons(
+                          sizeIcon: 20,
                           title: 'Tarjeta Credito / Debito',
                           icon: FontAwesomeIcons.creditCard,
                           isActive: true,

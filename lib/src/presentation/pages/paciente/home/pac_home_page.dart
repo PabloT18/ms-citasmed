@@ -3,6 +3,7 @@ import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_chat_pane
 import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_citas_panel.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_recetas_panel.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/widgets/pac_drawer_custom.dart';
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -49,7 +50,9 @@ class _PacHomePageState extends State<PacHomePage> {
         actions: [
           IconButton(
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.pacPerfil);
+              },
               icon: const FaIcon(FontAwesomeIcons.solidCircleUser))
         ],
       ),

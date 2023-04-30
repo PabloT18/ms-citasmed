@@ -1,5 +1,6 @@
 import 'package:citas_med_app/src/presentation/pages/paciente/home/horario_button.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
+import 'package:citas_med_app/src/utils/router/app_router.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,7 +16,6 @@ class _PacAgendarCitaState extends State<PacAgendarCita> {
   bool _otroPaciente = false;
   @override
   Widget build(BuildContext context) {
-    bool isEnabled = false;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kevin'),
@@ -134,7 +134,7 @@ class _PacAgendarCitaState extends State<PacAgendarCita> {
                     'La cita es para alguien más?',
                   )),
               Switch(
-                  value: !_otroPaciente,
+                  value: _otroPaciente,
                   onChanged: (_) {
                     // Navigator.push(
                     //   context,
@@ -201,7 +201,9 @@ class _PacAgendarCitaState extends State<PacAgendarCita> {
           SizedBox(
             width: double.maxFinite,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.pacSeleccionarMedioPago);
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(
                     16.0), // Personaliza el espacio de relleno del botón

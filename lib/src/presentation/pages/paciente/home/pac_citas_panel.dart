@@ -1,3 +1,4 @@
+import 'package:citas_med_app/src/presentation/widgets/alert_fialog_custom.dart';
 import 'package:citas_med_app/src/utils/responsive.dart';
 import 'package:citas_med_app/src/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +84,12 @@ class PacCitasPanel extends StatelessWidget {
                                   contentPadding: const EdgeInsets.all(2),
                                   content: Image.asset(
                                       'lib/src/assets/images/googlemap.jpg'),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {},
+                                        child:
+                                            const Text('Abre en Google Maps'))
+                                  ],
                                 );
                               },
                             );
@@ -97,7 +104,21 @@ class PacCitasPanel extends StatelessWidget {
                           ),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialogCustom(
+                                    title: 'Canclecion de cita',
+                                    canelbutton: true,
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    content:
+                                        'Seguro que desea cancelar la cita?');
+                              },
+                            );
+                          },
                           child: const Text(
                             'Cancelar cita',
                             style: TextStyle(

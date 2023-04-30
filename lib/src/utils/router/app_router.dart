@@ -2,12 +2,15 @@ import 'dart:developer';
 
 import 'package:citas_med_app/src/presentation/pages/medico/chat/chat_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/direcciones/direcciones_page.dart';
+import 'package:citas_med_app/src/presentation/pages/medico/direcciones/regsitro_nuevo_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/home/med_home_page.dart';
 import 'package:citas_med_app/src/presentation/pages/login/login_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/perfil/med_paciente_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page.dart';
 import 'package:citas_med_app/src/presentation/pages/medico/registro/med_registro_page_2.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_agendar_panel.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_doctor_panel.dart';
+import 'package:citas_med_app/src/presentation/pages/paciente/home/pac_perfil_page.dart';
 import 'package:citas_med_app/src/presentation/pages/paciente/registro/pac_registro_page.dart';
 
 import 'package:citas_med_app/src/presentation/pages/register/register_page.dart';
@@ -28,16 +31,21 @@ class AppRoutes {
   static const String loginPage = '/login';
   static const String pacHomePage = '/pac/home';
   static const String docHomePage = '/doc/home';
-  static const String docDirrecionesPage = '/doc/direcciones';
 
   ///MEDICO ROUTES
   static const String docChatPage = '/doc/chat/';
+  static const String docDirrecionesPage = '/doc/direcciones';
+  static const String docDirrecionesRegistroPage = '/doc/direcciones/registro';
+
   static const String docPacientePerfilPage = '/doc/paciente/perfil';
 
   ///PACIENTE ROUTERS
+  static const String pacPerfil = '/pac/perfil/';
+  static const String pacChatPage = '/pac/chat/';
   static const String pacAgendarCita = '/pac/agendarcita';
   static const String pacSeleccionarMedioPago = '/pac/seleccionarMedioPago';
   static const String pagoCard = '/pac/pagoTarjeta';
+  static const String pacDoctorPage = '/pac/doctor';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     log('--------------------------------------${settings.name}');
@@ -61,25 +69,34 @@ class AppRoutes {
         return _fadeRoute(const DocHomePage(), docHomePage, settings);
       case docChatPage:
         return _fadeRoute(const ChatPage(), docChatPage, settings);
+
       case docPacientePerfilPage:
         return _fadeRoute(
             const MedPerfilPacientePage(), docPacientePerfilPage, settings);
       case docDirrecionesPage:
         return _fadeRoute(const DirecionesPage(), docDirrecionesPage, settings);
 
+      case docDirrecionesRegistroPage:
+        return _fadeRoute(const MedDireccionRegistroPage(),
+            docDirrecionesRegistroPage, settings);
+
       /// PACEINTE
       case pacregisterPage:
         return _fadeRoute(const PacRegistroPage(), pacregisterPage, settings);
-
+      case pacChatPage:
+      case pacPerfil:
+        return _fadeRoute(const PacPerfilPacientePage(), pacPerfil, settings);
       case pacHomePage:
-        return _fadeRoute(const PacHomePage(), docDirrecionesPage, settings);
+        return _fadeRoute(const PacHomePage(), pacHomePage, settings);
       case pacAgendarCita:
         return _fadeRoute(const PacAgendarCita(), pacAgendarCita, settings);
       case pacSeleccionarMedioPago:
         return _fadeRoute(
-            const PacElegirMedioPago(), pacSeleccionarMedioPago, settings);
+            const PacElegirMedioPagoPage(), pacSeleccionarMedioPago, settings);
       case pagoCard:
         return _fadeRoute(const PagoCard(), pagoCard, settings);
+      case pacDoctorPage:
+        return _fadeRoute(const PacDoctorPage(), pacDoctorPage, settings);
 
       default:
         return _errorRoute();
